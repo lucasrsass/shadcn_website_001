@@ -1,12 +1,10 @@
 'use client';
 
 import {
-  Bell,
-  Bookmark,
-  Home,
-  List,
+  BookOpenText,
+  FolderOpen,
+  Scroll,
   Mail,
-  MoreHorizontal,
   User,
   Users,
 } from 'lucide-react';
@@ -18,46 +16,41 @@ import { SidebarMobile } from './sidebarMobile';
 
 const sidebarItems: SidebarItems = {
   links: [
-    { label: 'Home', href: '/', icon: Home },
-    { label: 'Notifications', href: '/item/notifications', icon: Bell },
-    { label: 'Messages', href: '/item/messages', icon: Mail },
+    { label: 'About Me', href: '/', icon: User },
+    {
+      href: '/item/portfolio',
+      icon: FolderOpen,
+      label: 'Portfolio',
+    },
     {
       href: '/item/lists',
-      icon: List,
-      label: 'Lists',
+      icon: Scroll,
+      label: 'Ciriculum Vitea',
     },
     {
       href: '/item/bookmarks',
-      icon: Bookmark,
-      label: 'Bookmarks',
+      icon: BookOpenText,
+      label: 'Publications',
     },
     {
       href: '/item/communities',
       icon: Users,
-      label: 'Communities',
-    },
-    {
-      href: '/item/profile',
-      icon: User,
-      label: 'Profile',
+      label: 'Collaborations',
     },
   ],
   extras: (
     <div className="flex flex-col gap-2">
-      <SidebarButton icon={MoreHorizontal} className="w-full">
-        More
-      </SidebarButton>
       <SidebarButton
         className="w-full justify-center text-white"
         variant="default"
       >
-        Tweet
+        Contact
       </SidebarButton>
     </div>
   ),
 };
 
-export function sidebar() {
+export function Sidebar() {
   const isDesktop = useMediaQuery('(min-width: 640px)', {
     initializeWithValue: false,
   });
